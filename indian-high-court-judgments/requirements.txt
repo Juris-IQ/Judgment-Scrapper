@@ -1,0 +1,12 @@
+tqdm
+requests
+bs4
+lxml
+boto3
+pyarrow
+pandas
+pyexiftool
+pydantic
+pillow
+onnx
+onnxruntime

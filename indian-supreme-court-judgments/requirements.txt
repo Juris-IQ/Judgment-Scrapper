@@ -1,0 +1,14 @@
+pandas
+boto3
+tqdm
+BeautifulSoup4
+pillow
+lxml
+easyocr
+colorlog
+urllib3
+requests
+torch
+onnx
+onnxruntime
+pyarrow>=21.0.0

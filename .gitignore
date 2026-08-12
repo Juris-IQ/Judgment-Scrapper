@@ -1,0 +1,25 @@
+# Local Git metadata from the two source repositories
+indian-high-court-judgments/.git/
+indian-supreme-court-judgments/.git/
+
+# Downloaded data and generated local mirrors
+indian-high-court-judgments/data/
+indian-supreme-court-judgments/data/
+indian-supreme-court-judgments/sc_data/
+indian-supreme-court-judgments/packages/
+
+# Environments and caches
+**/.venv/
+**/venv/
+**/__pycache__/
+**/.pytest_cache/
+**/.ruff_cache/
+**/captcha-tmp/
+**/captcha-failures/
+**/captcha.onnx
+**/temp-files/
+
+# Local secrets and reports
+**/.env
+**/.env.*
+**/*accessKeys*.csv

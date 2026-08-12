@@ -1,0 +1,100 @@
+# Indian Supreme Court Judgments
+
+## Overview
+
+This repository contains judgments from the Supreme Court of India, made available as part of the AWS Open Data Sponsorship Program. This dataset aims to make Indian legal information more accessible to researchers, legal professionals, and the general public.
+
+## Dataset Description
+
+The Indian Supreme Court Judgments dataset contains court judgments delivered by the Supreme Court of India. The dataset covers judgments from 1950 to 2025 and is regularly updated.
+
+### Data Files
+
+Each year's data consists of tar archives for bulk access, parquet metadata for analytics, and individual JSON/PDF objects for targeted access. Prefer tar archives and parquet for bulk workflows because syncing many individual objects is slower and creates more S3 requests.
+
+1. **English Judgments** (`english.tar`):
+
+  - Contains judgments in English language for the specified year
+  - Each tar file has a corresponding index file (`english.index.json`) that provides information about the contained judgments
+  - Individual PDFs are also available under `data/pdf/year=YYYY/english/`
+
+2. **Regional Language Judgments** (`regional.tar`):
+
+  - Contains judgments in various regional Indian languages for the specified year
+  - Each tar file has a corresponding index file (`regional.index.json`) that provides information about the contained judgments
+  - Individual PDFs are also available under `data/pdf/year=YYYY/regional/`
+
+3. **Metadata** (`metadata.tar`):
+  - Contains metadata about judgments for the specified year
+  - Each tar file has a corresponding index file (`metadata.index.json`) that provides information about the contained metadata
+  - Individual JSON files are also available under `metadata/json/year=YYYY/`
+  - Structured parquet metadata is available under `metadata/parquet/year=YYYY/metadata.parquet`
+
+### Index Files
+
+Each tar file is accompanied by an index JSON file that contains information about the files within the tar archive. These index files can be used to quickly determine the contents without downloading the complete tar file.
+
+## Usage
+
+### Accessing the Data
+
+This dataset is available in the AWS Open Data Registry and can be accessed via:
+
+1. **Direct S3 Access**:
+
+   ```
+   aws s3 ls s3://indian-supreme-court-judgments/ --no-sign-request
+   ```
+
+2. **Listing Available Years**:
+
+   ```
+   aws s3 ls s3://indian-supreme-court-judgments/data/tar/ --no-sign-request
+   ```
+
+3. **Downloading Index Files** (to preview content):
+
+   ```
+   aws s3 cp s3://indian-supreme-court-judgments/data/tar/year=2023/english/english.index.json . --no-sign-request
+   ```
+
+4. **Downloading Judgment Files**:
+  ```
+  aws s3 cp s3://indian-supreme-court-judgments/data/tar/year=2023/english/english.tar . --no-sign-request
+  ```
+
+5. **Listing Individual Objects**:
+   ```
+   aws s3 ls s3://indian-supreme-court-judgments/data/pdf/year=2023/english/ --no-sign-request
+   aws s3 ls s3://indian-supreme-court-judgments/metadata/json/year=2023/ --no-sign-request
+   ```
+
+### Example Use Cases
+
+This dataset can be used for:
+
+1. **Legal Research**: Analyze trends in legal decisions and precedents set by India's highest court
+2. **Natural Language Processing**: Train and test NLP models on legal text in multiple languages
+3. **Legal Education**: Access historical judgments for educational purposes
+4. **Socio-legal Analysis**: Study the evolution of legal reasoning and social perspectives through judgments
+5. **Comparative Law Studies**: Compare Indian Supreme Court judgments with those from other jurisdictions
+
+## License
+
+This dataset is made available under the Creative Commons Attribution 4.0 International License (CC BY 4.0). See the LICENSE file for details.
+
+## Citation
+
+If you use this dataset in your research, please cite it as follows:
+
+```
+Vanga (2025). Indian Supreme Court Judgments. [Data set]. AWS Open Data Registry. https://registry.opendata.aws/indian-supreme-court-judgments/
+```
+
+## Contact
+
+For questions or feedback about this dataset, please contact Pradeep Vanga (pradeep@dattam.in).
+
+## Acknowledgments
+
+We thank the AWS Open Data Sponsorship Program for hosting this dataset and making it freely accessible to the public.
